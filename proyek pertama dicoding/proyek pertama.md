@@ -55,7 +55,7 @@ Data untuk melakukan pemodelan machine learning untuk kasus ini diambil pada web
 Beberapa explorasi yang dilakukan antara lain :
 1. mencari nilai outlier dan membuangnya. \
    Pada repository ini, metode yang digunakan untuk mendeteksi outlier adalah dengan menggunakan metode IQR.
-2. Mencari nilai persebaran data numerik.
+2. Mencari nilai persebaran data numerik. \
    diagram yang digunakan untuk menampilkan data persebaran nilai numerik adalah menggunakan histogram chart.
 3. mencari nilai persebaran data categorical. \
    diagram yang digunakan untuk menampilkan data persebaran nilai categorical adalah menggunakan bar chart.
