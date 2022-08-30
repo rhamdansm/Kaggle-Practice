@@ -2,36 +2,32 @@
 
 ## advertisement click on ad
 
-### Latar Belakang
+### Domain Proyek
 Pemasaran internet telah mengambil alih strategi pemasaran tradisional di masa lalu. Perusahaan lebih suka mengiklankan produk mereka di situs web dan platform media sosial. Namun, menargetkan audiens yang tepat masih menjadi tantangan dalam pemasaran online. Menghabiskan jutaan untuk menampilkan iklan kepada audiens yang tidak mungkin membeli produk Anda bisa menjadi sia-sia.
 
 Pada repository ini, saya akan bekerja dengan data periklanan dari agensi pemasaran untuk mengembangkan algoritme pembelajaran mesin yang memprediksi apakah pengguna tertentu akan mengklik iklan. Data terdiri dari 10 variabel:  'Daily Time Spent on Site', 'Age', 'Area Income', 'Daily Internet Usage', 'Ad Topic Line', 'City', 'Male', 'Country', Timestamp' and 'Clicked on Ad'.
 
 Variabel utama yang kami minati adalah 'click on ad'. Variabel ini dapat memiliki dua kemungkinan hasil: 0 dan 1 di mana 0 mengacu pada kasus di mana pengguna tidak mengklik iklan, sedangkan 1 mengacu pada skenario di mana pengguna mengklik iklan.
 
-**mengapa dan bagaimana masalah tersebut harus diselesaikan ?**\
-Permasalahan ini menjadi penting untuk diselesaikan karena pada masa digital saat ini, kebutuhan akan iklan digital menjadi berkembang secara pesat. Namun sayangnya, tidak semua iklan yang ada di internet mampu untuk menarik orang untuk melihat iklan tersebut. Oleh karena itu, dengan model ini diharapkan dapat membantu para pengiklan untuk merencanakan pemasaran produk mereka secara digital. 
+Pada masa digital saat ini, kebutuhan akan iklan digital menjadi berkembang secara pesat. Namun sayangnya, tidak semua iklan yang ada di internet mampu untuk menarik orang untuk melihat iklan tersebut. Oleh karena itu, dengan model ini diharapkan dapat membantu para pengiklan untuk merencanakan pemasaran produk mereka secara digital. 
 
 Cara yang dilakukan untuk dapat membuat model machine learning ini adalah dengan melakukan sebuat klasifikasi biner untuk menentukan apakah user yang meilhat iklan ini mengklik iklan tersebut berdasarkan dengan background user. 
 
-**Hasil Riset**
+**Daftar Pustaka**
 1. [Machine Learning Based Ad-click prediction system](https://www.researchgate.net/publication/336666758_Machine_Learning_Based_Ad-click_prediction_system)
 2. [Click-Through Rate Prediction in Online Advertising: A Literature Review](https://arxiv.org/abs/2202.10462)
 
 ## Business Understanding
 
 ### Problem Statements
-
-pernyataan masalah latar belakang:
 - Perusahaan lebih suka mengiklankan produk mereka di situs web dan platform media sosial.
 - menargetkan audiens yang tepat masih menjadi tantangan dalam pemasaran online.
--  Menghabiskan jutaan untuk menampilkan iklan kepada audiens yang tidak mungkin membeli produk Anda bisa menjadi sia-sia.
+- Menghabiskan banyak dana untuk menampilkan iklan kepada audiens yang tidak mungkin membeli produk Anda bisa menjadi sia-sia.
 
 ### Goals
-
-Tujuan Masalah:
 - Dapat menentukan prediksi apakah iklan yang dibuat akan dilirik oleh audiens atau tidak
 - Membantu membuat prediksi jenis iklan yang mungkin akan dilirik oleh audiens
+- Membantu menghemat dana untuk mengiklankan suatu produk secara digital
 
 ### Solution statements
 
@@ -40,7 +36,8 @@ Untuk menyelesaikan masalah ini terdapat beberapa solusi yang digunakan, antara 
 - Membuat metriks evaluasi untuk membandingkan masing-masing algoritma tersebut untuk mencari yang paling optimal. Beberapa matriks yang digunakan, antara lain Confusion matrix, Classification report, dan Accuracy
 
 ## Data Understanding
-Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan dalam proyek. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [Advertisement - Click on Ad dataset](https://www.kaggle.com/datasets/gabrielsantello/advertisement-click-on-ad).
+Data untuk melakukan pemodelan machine learning untuk kasus ini diambil pada website kaggle dengan link sebagai berikut :
+[Advertisement - Click on Ad dataset](https://www.kaggle.com/datasets/gabrielsantello/advertisement-click-on-ad).
 
 ### Variabel-variabel pada Advertisement - Click on Ad dataset adalah sebagai berikut:
 - 'Daily Time Spent on Site': waktu konsumen di situs dalam hitungan menit
@@ -56,15 +53,20 @@ Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan d
 
 ### Explorasi data yang dilakukan
 Beberapa explorasi yang dilakukan antara lain :
-1. mencari nilai outlier dan membuangnya
-2. Mencari nilai persebaran data numerik, dan
-3. mencari nilai persebaran data categorical
+1. mencari nilai outlier dan membuangnya. \
+   * Pada repository ini, metode yang digunakan untuk mendeteksi outlier adalah dengan menggunakan metode IQR.
+2. Mencari nilai persebaran data numerik.
+   diagram yang digunakan untuk menampilkan data persebaran nilai numerik adalah menggunakan histogram chart.
+3. mencari nilai persebaran data categorical. \
+   diagram yang digunakan untuk menampilkan data persebaran nilai categorical adalah menggunakan bar chart.
+4. Melakukan Multivariate Analysis. \
+   digunakan pairplot chart Untuk melakukan Multivariate Analysis untuk setiap data numerik yang ada pada dataset.
 
 ## Data Preparation
 Beberapa data preparation yang dilakukan antara lain :
 1. Menghilangkan Outlier : Mengurangi bias pada data.
 2. Feature Scalling :  membuat numerical data pada dataset memiliki rentang nilai (scale) yang sama sehingga Tidak ada lagi satu variabel data yang mendominasi variabel data lainnya.
-3. Splitting train-test data : Membagi dataset menjadi data latih dan data uji.
+3. Splitting train-test data : Membagi dataset menjadi data latih dan data uji dengan ratio split adalah 70% untuk data latih dan 30% untuk data uji.
 
 ## Modeling
 Beberapa algoritma yang digunakan antara lain :
@@ -119,4 +121,14 @@ Beberapa matriks yang digunakan untuk melakukan evaluasi antara lain :
 
 **Alasan menggunakan ketiga metriks** tersebut dikarenakan ketiga metriks evaluasi tersebut cocok digunakan pada suatu model klasifikasi. Dengan menggunakan matriks-matriks tersebut, maka kita dapat menentukan algoritma machine learning mana yang menghasilkan prediksi klasifikasi yang paling sesuai.
 
-**berdasarkan matrik evaluasi hasil uji** menunjukan bahwa nilai akurasi terbesar pada model machine learning yang dibuat pada setiap algoritma berada pada algoritma Naive Bayes dengan nilai akurasi sekitar 96%.
+**Nilai Accuracy Setiap Model yang digunakan:**
+Logistic Regression	: 0.889261744966443
+Naive Bayes		      : 0.9630872483221476
+Random Forest		   : 0.9563758389261745
+Decission Tree		   : 0.9429530201342282
+
+**berdasarkan matrik akurasi hasil uji** menunjukan bahwa algoritma machine learning yang terbaik pada kasus ini adalah pada saat menggunakan Naive bayes. Hal tersebut juga dapat diperkuat dengan matriks confusion matriks berikut untuk algoritma naive bayes.
+True Positive  : 135
+True Negative  : 152
+False Positive : 4
+False Negative : 7
