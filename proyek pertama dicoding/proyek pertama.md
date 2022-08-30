@@ -1,87 +1,122 @@
-# Laporan Proyek Machine Learning - Nama Anda
+# Laporan Proyek Machine Learning - Rhamdan Syahrul Mubarak
 
-## Domain Proyek
+## advertisement click on ad
 
-Pada bagian ini, kamu perlu menuliskan latar belakang yang relevan dengan proyek yang diangkat.
+### Latar Belakang
+Pemasaran internet telah mengambil alih strategi pemasaran tradisional di masa lalu. Perusahaan lebih suka mengiklankan produk mereka di situs web dan platform media sosial. Namun, menargetkan audiens yang tepat masih menjadi tantangan dalam pemasaran online. Menghabiskan jutaan untuk menampilkan iklan kepada audiens yang tidak mungkin membeli produk Anda bisa menjadi sia-sia.
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Jelaskan mengapa dan bagaimana masalah tersebut harus diselesaikan
-- Menyertakan hasil riset terkait atau referensi. Referensi yang diberikan harus berasal dari sumber yang kredibel dan author yang jelas.
-  
-  Format Referensi: [Judul Referensi](https://scholar.google.com/) 
+Pada repository ini, saya akan bekerja dengan data periklanan dari agensi pemasaran untuk mengembangkan algoritme pembelajaran mesin yang memprediksi apakah pengguna tertentu akan mengklik iklan. Data terdiri dari 10 variabel:  'Daily Time Spent on Site', 'Age', 'Area Income', 'Daily Internet Usage', 'Ad Topic Line', 'City', 'Male', 'Country', Timestamp' and 'Clicked on Ad'.
+
+Variabel utama yang kami minati adalah 'click on ad'. Variabel ini dapat memiliki dua kemungkinan hasil: 0 dan 1 di mana 0 mengacu pada kasus di mana pengguna tidak mengklik iklan, sedangkan 1 mengacu pada skenario di mana pengguna mengklik iklan.
+
+**mengapa dan bagaimana masalah tersebut harus diselesaikan ?**\
+Permasalahan ini menjadi penting untuk diselesaikan karena pada masa digital saat ini, kebutuhan akan iklan digital menjadi berkembang secara pesat. Namun sayangnya, tidak semua iklan yang ada di internet mampu untuk menarik orang untuk melihat iklan tersebut. Oleh karena itu, dengan model ini diharapkan dapat membantu para pengiklan untuk merencanakan pemasaran produk mereka secara digital. 
+
+Cara yang dilakukan untuk dapat membuat model machine learning ini adalah dengan melakukan sebuat klasifikasi biner untuk menentukan apakah user yang meilhat iklan ini mengklik iklan tersebut berdasarkan dengan background user. 
+
+**Hasil Riset**
+1. [Machine Learning Based Ad-click prediction system](https://www.researchgate.net/publication/336666758_Machine_Learning_Based_Ad-click_prediction_system)
+2. [Click-Through Rate Prediction in Online Advertising: A Literature Review](https://arxiv.org/abs/2202.10462)
 
 ## Business Understanding
 
-Pada bagian ini, kamu perlu menjelaskan proses klarifikasi masalah.
-
-Bagian laporan ini mencakup:
-
 ### Problem Statements
 
-Menjelaskan pernyataan masalah latar belakang:
-- Pernyataan Masalah 1
-- Pernyataan Masalah 2
-- Pernyataan Masalah n
+pernyataan masalah latar belakang:
+- Perusahaan lebih suka mengiklankan produk mereka di situs web dan platform media sosial.
+- menargetkan audiens yang tepat masih menjadi tantangan dalam pemasaran online.
+-  Menghabiskan jutaan untuk menampilkan iklan kepada audiens yang tidak mungkin membeli produk Anda bisa menjadi sia-sia.
 
 ### Goals
 
-Menjelaskan tujuan dari pernyataan masalah:
-- Jawaban pernyataan masalah 1
-- Jawaban pernyataan masalah 2
-- Jawaban pernyataan masalah n
+Tujuan Masalah:
+- Dapat menentukan prediksi apakah iklan yang dibuat akan dilirik oleh audiens atau tidak
+- Membantu membuat prediksi jenis iklan yang mungkin akan dilirik oleh audiens
 
-Semua poin di atas harus diuraikan dengan jelas. Anda bebas menuliskan berapa pernyataan masalah dan juga goals yang diinginkan.
+### Solution statements
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Menambahkan bagian “Solution Statement” yang menguraikan cara untuk meraih goals. Bagian ini dibuat dengan ketentuan sebagai berikut: 
-
-    ### Solution statements
-    - Mengajukan 2 atau lebih solution statement. Misalnya, menggunakan dua atau lebih algoritma untuk mencapai solusi yang diinginkan atau melakukan improvement pada baseline model dengan hyperparameter tuning.
-    - Solusi yang diberikan harus dapat terukur dengan metrik evaluasi.
+Untuk menyelesaikan masalah ini terdapat beberapa solusi yang digunakan, antara lain :
+- menggunakan lebih dari 1 algoritma machine learning yang cocok untuk melakukan klasifikasi, seperti logistik regression, Naive bayes, Random Forest, dan Decission Tree.
+- Membuat metriks evaluasi untuk membandingkan masing-masing algoritma tersebut untuk mencari yang paling optimal. Beberapa matriks yang digunakan, antara lain Confusion matrix, Classification report, dan Accuracy
 
 ## Data Understanding
-Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan dalam proyek. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
+Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan dalam proyek. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [Advertisement - Click on Ad dataset](https://www.kaggle.com/datasets/gabrielsantello/advertisement-click-on-ad).
 
-Selanjutnya uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:  
+### Variabel-variabel pada Advertisement - Click on Ad dataset adalah sebagai berikut:
+- 'Daily Time Spent on Site': waktu konsumen di situs dalam hitungan menit
+- 'Age': usia pelanggan dalam tahun
+- 'Area Income': Rata-rata. Pendapatan wilayah geografis konsumen
+- 'Daily Internet Usage': Rata-rata. menit sehari konsumen ada di internet
+- 'Ad Topic Line': Judul iklan
+- 'City': Kota konsumen
+- 'Male': Apakah konsumen adalah laki-laki atau tidak
+- 'Country': Negara konsumen
+- 'Timestamp': Waktu saat konsumen mengklik Iklan atau jendela tertutup
+- 'Clicked On': 0 atau 1 menunjukkan mengklik Iklan
 
-### Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
-- accepts : merupakan jenis pembayaran yang diterima pada restoran tertentu.
-- cuisine : merupakan jenis masakan yang disajikan pada restoran.
-- dst
-
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data atau exploratory data analysis.
+### Explorasi data yang dilakukan
+Beberapa explorasi yang dilakukan antara lain :
+1. mencari nilai outlier dan membuangnya
+2. Mencari nilai persebaran data numerik, dan
+3. mencari nilai persebaran data categorical
 
 ## Data Preparation
-Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
-
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan proses data preparation yang dilakukan
-- Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
+Beberapa data preparation yang dilakukan antara lain :
+1. Menghilangkan Outlier : Mengurangi bias pada data.
+2. Feature Scalling :  membuat numerical data pada dataset memiliki rentang nilai (scale) yang sama sehingga Tidak ada lagi satu variabel data yang mendominasi variabel data lainnya.
+3. Splitting train-test data : Membagi dataset menjadi data latih dan data uji.
 
 ## Modeling
-Tahapan ini membahas mengenai model machine learning yang digunakan untuk menyelesaikan permasalahan. Anda perlu menjelaskan tahapan dan parameter yang digunakan pada proses pemodelan.
+Beberapa algoritma yang digunakan antara lain :
+1. Binary Logistic Regression. \
+   Logistic Regression yang hanya memiliki 2 output saja (mengklasifikasi kedalam 2 kelas berbeda)
+    * Kelebihan
+      - Variabel independen dalam regresi logistik bisa campuran dari variabel kontinu, distrik, dan dikotomis. 
+      - Regresi logistik tidak membutuhkan keterbatasan dari variabel independennya. 
+      - Regresi logistik tidak mengharuskan variabel bebasnya dalam bentuk interval
+    * Kekurangan
+      - rentan terhadap underfitting pada dataset yang kelasnya tidak seimbang, sehingga akan menghasilkan akurasi yang rendah.
+     
+2. Gausian Naive Bayes. \
+   Naive Bayes menerapkan Teorema Bayes, sebuah formula matematika sederhana yang digunakan untuk probabilitas bersyarat (conditional probability).
+   * Kelebihan
+      - model yang sederhana, namun dapat bersaing dengan model algoritma lainnya. 
+      - Implementasinya tidak terlalu rumit, cocok untuk mengevaluasi probabilitas bersyarat.
+      - probabilitas dapat langsung dihitung. Jadi, algoritma ini berguna saat membutuhkan kecepatan pelatihan yang tinggi.
+    * Kekurangan
+      - Algoritma ini menerapkan asumsi independensi bersyarat, sayangnya hal ini tidak selalu berlaku. Dalam kebanyakan situasi, fitur yang ada justru menunjukkan beberapa bentuk dependensi.
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan kelebihan dan kekurangan dari setiap algoritma yang digunakan.
-- Jika menggunakan satu algoritma pada solution statement, lakukan proses improvement terhadap model dengan hyperparameter tuning. **Jelaskan proses improvement yang dilakukan**.
-- Jika menggunakan dua atau lebih algoritma pada solution statement, maka pilih model terbaik sebagai solusi. **Jelaskan mengapa memilih model tersebut sebagai model terbaik**.
+3. Random Forest. \
+    algoritma ini menerapkan teknik ansambel. Teknik ansambel sendiri berarti menggabungkan banyak penggolong (classifiers) untuk bisa memberikan solusi terhadap masalah yang kompleks.  
+   * Kelebihan
+      - Random forest dapat dijalankan pada tugas klasifikasi sekaligus regresi. 
+      - algoritma ini juga mampu menghasilkan prediksi dengan tingkat akurasi tinggi yang mudah dipahami. 
+      - Jika diterapkan pada kumpulan dataset berskala besar, random forest akan bekerja secara efisien. 
+    * Kekurangan
+      - Untuk bisa menghasilkan prediksi dengan tingkat akurasi tinggi, diperlukan lebih banyak sumber daya dalam proses komputasi.
+      - Makin banyak sumber daya yang diperlukan, artinya makin banyak juga waktu yang diperlukan untuk bisa memprediksi hasil.
+ 
+4. Decission Tree. \
+   Sebuah Algoritma Machine Learning dengan struktur seperti pohon yang memodelkan kemungkinan hasil, biaya sumber daya, utilitas, dan kemungkinan konsekuensi.
+   * Kelebihan
+      - Mudah dibaca dan ditafsirkan
+      - Mudah disiapkan
+      - Lebih sedikit pembersihan data yang diperlukan
+    * Kekurangan
+      - Sifat tidak stabil
+      - Kurang efektif dalam memprediksi hasil dari variabel kontinu
+   
+**Algoritma Machine Learning yang paling Optimal** digunakan pada contoh kasus ini adalah Naive bayes. Karena kasus yang ada pada saat ini merupakan salah satu bentuk probabilitas bersyarat (conditional probability). Selain itu, berdasarkan matrik evaluasi hasil uji menunjukan bahwa nilai akurasi terbesar pada model machine learning yang dibuat pada setiap algoritma berada pada algoritma Naive Bayes dengan nilai akurasi sekitar 96%.
 
 ## Evaluation
-Pada bagian ini anda perlu menyebutkan metrik evaluasi yang digunakan. Lalu anda perlu menjelaskan hasil proyek berdasarkan metrik evaluasi yang digunakan.
+Beberapa matriks yang digunakan untuk melakukan evaluasi antara lain :
+1. Confusion matrix : \
+   pengukuran performa untuk masalah klasifikasi machine learning dimana keluaran dapat berupa dua kelas atau lebih. Confusion Matrix adalah tabel dengan 4 kombinasi berbeda dari nilai prediksi dan nilai aktual.
+2. Classification report : \
+   Matriks evaluasi yang menampilkan tiga nilai evaluasi dalam bentuk True positive, True Negative, False Positive, dan False Negative.
+4. Accuracy : \
+   tingkat kedekatan antara nilai prediksi dengan nilai aktual.
 
-Sebagai contoh, Anda memiih kasus klasifikasi dan menggunakan metrik **akurasi, precision, recall, dan F1 score**. Jelaskan mengenai beberapa hal berikut:
-- Penjelasan mengenai metrik yang digunakan
-- Menjelaskan hasil proyek berdasarkan metrik evaluasi
+**Alasan menggunakan ketiga metriks** tersebut dikarenakan ketiga metriks evaluasi tersebut cocok digunakan pada suatu model klasifikasi. Dengan menggunakan matriks-matriks tersebut, maka kita dapat menentukan algoritma machine learning mana yang menghasilkan prediksi klasifikasi yang paling sesuai.
 
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
-
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
-
-**---Ini adalah bagian akhir laporan---**
-
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
-
+**berdasarkan matrik evaluasi hasil uji** menunjukan bahwa nilai akurasi terbesar pada model machine learning yang dibuat pada setiap algoritma berada pada algoritma Naive Bayes dengan nilai akurasi sekitar 96%.
