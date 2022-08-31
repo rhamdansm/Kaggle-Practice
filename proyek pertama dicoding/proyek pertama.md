@@ -67,8 +67,8 @@ Beberapa data preparation yang dilakukan antara lain :
 1. Menghilangkan Outlier. \
    Mengurangi bias pada data.
 2. Feature Scalling. \
-   membuat numerical data pada dataset memiliki rentang nilai (scale) yang sama sehingga Tidak ada lagi satu variabel data yang mendominasi variabel data lainnya.
-3. Splitting train-test data. \ 
+   Membuat numerical data pada dataset memiliki rentang nilai (scale) yang sama sehingga Tidak ada lagi satu variabel data yang mendominasi variabel data lainnya.
+3. Splitting train-test data.\ 
    Membagi dataset menjadi data latih dan data uji dengan ratio split adalah 70% untuk data latih dan 30% untuk data uji.
 
 ## Modeling
