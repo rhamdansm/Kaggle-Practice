@@ -52,10 +52,10 @@ Beberapa data preparation yang dilakukan antara lain :
    Memberikan pendekatan yang konsisten dan efisien untuk memprioritaskan atau memeringkat beberapa opsi. Dua _matrics pairwise_ yang digunakan adalah pembobotan akan melalui tahap cosine distance untuk mencari kemiripan berdasarkan sinopsisnya dan diakhiri dengan filtering berdasarkan genre menggunakan cosine similarity.
    
 ## Modeling
-modeling yang digunakan adalah dengan menggunakan _matrics pairwise_. Jadi, model yang kami buat Memberikan pendekatan yang konsisten dan efisien untuk memprioritaskan atau memeringkat beberapa opsi. Dua _matrics pairwise_ yang digunakan adalah pembobotan akan melalui tahap cosine distance untuk mencari kemiripan berdasarkan sinopsisnya dan diakhiri dengan filtering berdasarkan genre menggunakan cosine similarity.
+modeling yang digunakan adalah dengan menggunakan _matrics pairwise_. Jadi, model yang kami buat Memberikan pendekatan yang konsisten dan efisien untuk memprioritaskan atau memeringkat beberapa opsi. Dua _matrics pairwise_ yang digunakan adalah pembobotan akan melalui tahap cosine distance untuk mencari kemiripan berdasarkan sinopsisnya dan diakhiri dengan filtering berdasarkan genre menggunakan cosine similarity. Selanjutnya, bentuk modelling yang dipilih untuk kasus ini adalah dengan menggunakan model _content-based filtering_, yaitu dengan membuat rekomendasi berdasarkan konten film yang sudah ditonton oleh pengguna dan sistem akan memberikan rekomendasi berdasarkan kemiripan pada genre dan sinopsis film yang ditonton. 
 
 ## _Evaluation_
-![alt text](https://github.com/rhamdansm/Kaggle-Practice/blob/main/proyek%20kedua%20dicoding/recomendation.png)
+![alt text](./recomendation.png)
 
 Gambar diatas merupakan hasil yang didapatkan pada percobaan untuk melakukan rekomendasi. Berikut adalah penjelasan dari setiap 5 rekomendasi film yang diberikan oleh sistem.
 1. Rekomendasi film yang diberikan oleh sistem berdasarkan sinopsinya terasa masih kurang tepat. Hal tersebut dikarenakan film-film yang dijadikan rekomendasi oleh sistem memiliki cerita dan genre yang berbeda. Sebagai contoh, film "American Horor Movie" memiliki cerita yang berbeda jauh dengan alur cerita yang berada di film "Dragon Ball Super: Super Hero", selain itu juga film tersebut memiliki genre yang berbeda sehingga kemungkinan besar pengguna tidak akan menonton film yang direkomendasikan.
